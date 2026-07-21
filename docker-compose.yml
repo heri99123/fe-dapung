@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  fe-dapung:
+    container_name: dockerDapungFe
+    build: .
+    restart: always
+    ports:
+      - "5010:5010"

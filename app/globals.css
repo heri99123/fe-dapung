@@ -1,0 +1,281 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color scheme to match Indonesian community management system with green primary */
+  --background: #f0f4f8;
+  --foreground: #2e2e2e;
+  --card: #ffffff;
+  --card-foreground: #2e2e2e;
+  --popover: #ffffff;
+  --popover-foreground: #2e2e2e;
+  --primary: #4caf50;
+  --primary-foreground: #ffffff;
+  --secondary: #81c784;
+  --secondary-foreground: #2e2e2e;
+  --muted: #f0f4f8;
+  --muted-foreground: #6b7280;
+  --accent: #81c784;
+  --accent-foreground: #2e2e2e;
+  --destructive: #c62828;
+  --destructive-foreground: #ffffff;
+  --border: #d1d5db;
+  --input: #ffffff;
+  --ring: rgba(76, 175, 80, 0.5);
+  --chart-1: #4caf50;
+  --chart-2: #81c784;
+  --chart-3: #c8e6c9;
+  --chart-4: #a5d6a7;
+  --chart-5: #388e3c;
+  --radius: 0.5rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #2e2e2e;
+  --sidebar-primary: #4caf50;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #81c784;
+  --sidebar-accent-foreground: #2e2e2e;
+  --sidebar-border: #d1d5db;
+  --sidebar-ring: rgba(76, 175, 80, 0.5);
+  --logo-invert: 0;
+}
+
+/* Theme: Blue */
+[data-theme="blue"] {
+  --primary: #2196f3;
+  --secondary: #64b5f6;
+  --accent: #64b5f6;
+  --ring: rgba(33, 150, 243, 0.5);
+  --sidebar-primary: #2196f3;
+  --sidebar-accent: #64b5f6;
+  --sidebar-ring: rgba(33, 150, 243, 0.5);
+  --chart-1: #2196f3;
+  --chart-2: #64b5f6;
+  --chart-3: #bbdefb;
+  --chart-4: #90caf9;
+  --chart-5: #1976d2;
+}
+
+/* Theme: Purple */
+[data-theme="purple"] {
+  --primary: #9c27b0;
+  --secondary: #ba68c8;
+  --accent: #ba68c8;
+  --ring: rgba(156, 39, 176, 0.5);
+  --sidebar-primary: #9c27b0;
+  --sidebar-accent: #ba68c8;
+  --sidebar-ring: rgba(156, 39, 176, 0.5);
+  --chart-1: #9c27b0;
+  --chart-2: #ba68c8;
+  --chart-3: #e1bee7;
+  --chart-4: #ce93d8;
+  --chart-5: #7b1fa2;
+}
+
+/* Dark mode base */
+.dark {
+  --background: #1a1a1a;
+  --foreground: #ffffff;
+  --card: #2e2e2e;
+  --card-foreground: #ffffff;
+  --popover: #2e2e2e;
+  --popover-foreground: #ffffff;
+  --primary: #4caf50;
+  --primary-foreground: #ffffff;
+  --secondary: #388e3c;
+  --secondary-foreground: #ffffff;
+  --muted: #374151;
+  --muted-foreground: #9ca3af;
+  --accent: #81c784;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #374151;
+  --input: #374151;
+  --ring: rgba(76, 175, 80, 0.5);
+  --chart-1: #4caf50;
+  --chart-2: #81c784;
+  --chart-3: #c8e6c9;
+  --chart-4: #a5d6a7;
+  --chart-5: #388e3c;
+  --sidebar: #2e2e2e;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #4caf50;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #388e3c;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #374151;
+  --sidebar-ring: rgba(76, 175, 80, 0.5);
+}
+
+/* Dark mode + Blue theme */
+.dark[data-theme="blue"] {
+  --primary: #42a5f5;
+  --secondary: #64b5f6;
+  --accent: #64b5f6;
+  --ring: rgba(66, 165, 245, 0.5);
+  --sidebar-primary: #42a5f5;
+  --sidebar-accent: #64b5f6;
+  --sidebar-ring: rgba(66, 165, 245, 0.5);
+  --chart-1: #42a5f5;
+  --chart-2: #64b5f6;
+  --chart-3: #90caf9;
+  --chart-4: #bbdefb;
+  --chart-5: #1976d2;
+}
+
+/* Dark mode + Purple theme */
+.dark[data-theme="purple"] {
+  --primary: #ab47bc;
+  --secondary: #ba68c8;
+  --accent: #ba68c8;
+  --ring: rgba(171, 71, 188, 0.5);
+  --sidebar-primary: #ab47bc;
+  --sidebar-accent: #ba68c8;
+  --sidebar-ring: rgba(171, 71, 188, 0.5);
+  --chart-1: #ab47bc;
+  --chart-2: #ba68c8;
+  --chart-3: #ce93d8;
+  --chart-4: #e1bee7;
+  --chart-5: #7b1fa2;
+}
+
+/* Logo Theme Support */
+:root {
+  --logo-invert: 0;
+}
+
+html.dark {
+  --logo-invert: 1;
+}
+
+/* Aplikasikan filter ke logo SVG */
+img[alt="Dapung Logo"] {
+  filter: invert(var(--logo-invert));
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Responsive Table Utilities */
+@layer utilities {
+  .table-responsive {
+    @apply block overflow-x-auto -mx-3 sm:-mx-0;
+  }
+
+  .table-responsive table {
+    @apply min-w-full;
+  }
+
+  /* Mobile-optimized cards */
+  .mobile-card {
+    @apply block sm:hidden;
+  }
+
+  .desktop-table {
+    @apply hidden sm:table;
+  }
+
+  /* Responsive grid utilities */
+  .responsive-grid {
+    @apply grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+
+  .responsive-grid-2 {
+    @apply grid gap-3 sm:gap-4 grid-cols-1 md:grid-cols-2;
+  }
+
+  .responsive-grid-3 {
+    @apply grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  /* Text truncate for mobile */
+  .mobile-truncate {
+    @apply truncate sm:text-clip;
+  }
+
+  /* Responsive padding */
+  .responsive-padding {
+    @apply p-3 sm:p-4 md:p-6;
+  }
+
+  /* Responsive spacing */
+  .responsive-space-y {
+    @apply space-y-3 sm:space-y-4 md:space-y-6;
+  }
+}
+
+/* Override table styles for better mobile experience */
+@media (max-width: 640px) {
+  .table-mobile-stack tbody tr {
+    @apply block mb-4 border rounded-lg;
+  }
+
+  .table-mobile-stack tbody td {
+    @apply block text-right py-2 px-4;
+  }
+
+  .table-mobile-stack tbody td::before {
+    content: attr(data-label);
+    @apply float-left font-semibold;
+  }
+
+  .table-mobile-stack thead {
+    @apply hidden;
+  }
+}
+
+/* Smooth transitions for responsive changes */
+@media (prefers-reduced-motion: no-preference) {
+  .smooth-responsive {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
