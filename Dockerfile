@@ -2,12 +2,24 @@ FROM node:22-alpine AS builder
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+# Terima build args
+ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_AWAL_WAKTU_PERTAMA
+ARG NEXT_PUBLIC_AKHIR_WAKTU_PERTAMA
+ARG NEXT_PUBLIC_AWAL_WAKTU_KEDUA
+ARG NEXT_PUBLIC_AKHIR_WAKTU_KEDUA
 
+
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_AWAL_WAKTU_PERTAMA=$NEXT_PUBLIC_AWAL_WAKTU_PERTAMA
+ENV NEXT_PUBLIC_AKHIR_WAKTU_PERTAMA=$NEXT_PUBLIC_AKHIR_WAKTU_PERTAMA
+ENV NEXT_PUBLIC_AWAL_WAKTU_KEDUA=$NEXT_PUBLIC_AWAL_WAKTU_KEDUA
+ENV NEXT_PUBLIC_AKHIR_WAKTU_KEDUA=$NEXT_PUBLIC_AKHIR_WAKTU_KEDUA
+
+COPY package.json package-lock.json ./
 RUN npm install
 
 COPY . .
-
 RUN npm run build
 
 
@@ -16,16 +28,14 @@ FROM node:22-alpine AS runner
 WORKDIR /app
 
 COPY --from=builder /app/.next/standalone ./
-
 COPY --from=builder /app/.next/static ./.next/static
-
 COPY --from=builder /app/.next/server ./.next/server
-
 COPY --from=builder /app/public ./public
 
+ARG PORT=3000
 ENV NODE_ENV=production
-ENV PORT=5010
+ENV PORT=${PORT}
 
-EXPOSE 5010
+EXPOSE ${PORT}
 
 CMD ["node", "server.js"]

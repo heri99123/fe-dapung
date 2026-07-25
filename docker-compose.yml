@@ -2,7 +2,18 @@ version: "3.9"
 services:
   fe-dapung:
     container_name: dockerDapungFe
-    build: .
+    build:
+      context: .
+      args:
+        - PORT=${PORT}
+        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+        - NEXT_PUBLIC_AWAL_WAKTU_PERTAMA=${NEXT_PUBLIC_AWAL_WAKTU_PERTAMA}
+        - NEXT_PUBLIC_AKHIR_WAKTU_PERTAMA=${NEXT_PUBLIC_AKHIR_WAKTU_PERTAMA}
+        - NEXT_PUBLIC_AWAL_WAKTU_KEDUA=${NEXT_PUBLIC_AWAL_WAKTU_KEDUA}
+        - NEXT_PUBLIC_AKHIR_WAKTU_KEDUA=${NEXT_PUBLIC_AKHIR_WAKTU_KEDUA}
+    init: true
     restart: always
+    env_file:
+      - .env
     ports:
-      - "5010:5010"
+      - "${PORT}:${PORT}"
