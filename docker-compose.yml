@@ -1,19 +1,19 @@
-version: "3.9"
 services:
-  fe-dapung:
-    container_name: dockerDapungFe
+  # Node.js service (use with: docker compose up nextjs-standalone --build)
+  nextjs-standalone:
     build:
       context: .
+      dockerfile: Dockerfile
       args:
-        - PORT=${PORT}
-        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
-        - NEXT_PUBLIC_AWAL_WAKTU_PERTAMA=${NEXT_PUBLIC_AWAL_WAKTU_PERTAMA}
-        - NEXT_PUBLIC_AKHIR_WAKTU_PERTAMA=${NEXT_PUBLIC_AKHIR_WAKTU_PERTAMA}
-        - NEXT_PUBLIC_AWAL_WAKTU_KEDUA=${NEXT_PUBLIC_AWAL_WAKTU_KEDUA}
-        - NEXT_PUBLIC_AKHIR_WAKTU_KEDUA=${NEXT_PUBLIC_AKHIR_WAKTU_KEDUA}
-    init: true
-    restart: always
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+        NEXT_PUBLIC_AWAL_WAKTU_PERTAMA: ${NEXT_PUBLIC_AWAL_WAKTU_PERTAMA}
+        NEXT_PUBLIC_AKHIR_WAKTU_PERTAMA: ${NEXT_PUBLIC_AKHIR_WAKTU_PERTAMA}
+        NEXT_PUBLIC_AWAL_WAKTU_KEDUA: ${NEXT_PUBLIC_AWAL_WAKTU_KEDUA}
+        NEXT_PUBLIC_AKHIR_WAKTU_KEDUA: ${NEXT_PUBLIC_AKHIR_WAKTU_KEDUA}
+    image: nextjs-standalone-image
+    container_name: dapung-app
     env_file:
       - .env
     ports:
-      - "${PORT}:${PORT}"
+      - "${HOST_PORT}:${PORT}"
+    restart: unless-stopped
