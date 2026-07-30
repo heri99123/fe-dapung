@@ -136,7 +136,7 @@ export function Sidebar({ user, onLogout, onRoleSwitch }: SidebarProps) {
           <div className="flex items-center gap-2">
             <div className="flex items-center justify-center rounded-lg">
               <Image
-                src="/logo-dapung.jpeg"
+                src="/logo-dapung.png"
                 alt="Dapung Logo"
                 className="w-full h-full object-contain"
                 width={100}
