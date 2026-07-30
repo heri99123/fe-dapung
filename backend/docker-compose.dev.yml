@@ -1,0 +1,13 @@
+services:
+  app:
+    container_name: be-dapung-dev
+    build:
+      target: development
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run dev
+    ports:
+      - "5006:5006"

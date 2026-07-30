@@ -1,0 +1,13 @@
+services:
+  app:
+    container_name: be-dapung-prod
+    build:
+      target: production
+    environment:
+      - NODE_ENV=production
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
