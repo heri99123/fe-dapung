@@ -16,6 +16,7 @@ Sistem manajemen warga, transaksi dana, dan absensi ronda berbasis web untuk pen
 - [API Backend](#api-backend)
 - [Fitur Utama](#fitur-utama)
 - [Deploy dengan Docker](#deploy-dengan-docker)
+- [Lisensi](#lisensi)
 
 ---
 
@@ -341,4 +342,6 @@ docker compose -f docker-compose.prod.yml up -d
 
 ## Lisensi
 
-Proyek ini dikembangkan untuk keperluan internal pengelolaan RT/RW.
+Source code proyek ini dirilis sebagai open source di bawah lisensi [MIT](./LICENSE).
+
+Nama, logo, identitas visual, screenshot, dan aset brand **DaPUNG** tetap milik Heri Tico kecuali ada izin tertulis terpisah. Penggunaan source code dengan lisensi MIT tidak otomatis memberi hak untuk mengklaim atau memakai brand DaPUNG sebagai project resmi.

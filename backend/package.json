@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Backend API for Fundraising Management System",
   "main": "server.js",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
