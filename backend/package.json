@@ -1,7 +1,7 @@
 {
-  "name": "fundraising-backend",
+  "name": "dapung-backend",
   "version": "1.0.0",
-  "description": "Backend API for Fundraising Management System",
+  "description": "Backend API for DaPUNG Dana Kampung management system",
   "main": "server.js",
   "license": "MIT",
   "type": "module",
